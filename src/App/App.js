@@ -22,6 +22,10 @@ class App extends Component {
     this.setState({orders: [...this.state.orders, newOrder]})
   }
 
+  removeOrder = (id) => {
+    
+  }
+
   render() {
     return (
       <div className="App">
@@ -32,7 +36,7 @@ class App extends Component {
           </div>
         </header>
         <div className='purchase-container'>
-          <OrdersContainer orders={this.state.orders} />
+          <OrdersContainer orders={this.state.orders} removeOrder={this.removeOrder}/>
         </div>
       </div>
     );
