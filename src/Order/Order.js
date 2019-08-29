@@ -8,7 +8,7 @@ const Order = ({order, removeOrder}) => {
       <h2>{order.name}</h2>
       <p>{order.description}</p>
       <p>${order.price}</p>
-      <button onClick={removeOrder}>Remove From History</button>
+      <button onClick={() => removeOrder(order.id)}>Remove From History</button>
     </section>
   )
 }

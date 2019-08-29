@@ -26,15 +26,29 @@ class App extends Component {
         'Content-Type': 'application/json'
       }
     }
-    
+
     fetch('http://localhost:3001/api/v1/purchases', options)
       .then(response => response.json())
-      .then(data => this.setState({ orders: [...this.state.orders, newOrder] }))
+      .then(() => this.setState({ orders: [...this.state.orders, newOrder] }))
       .catch(error => console.log(error));
   }
 
   removeOrder = (id) => {
+    const filteredOrders = this.state.orders.filter(order => {
+      return order.id !== id
+    })
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
 
+    fetch(`http://localhost:3001/api/v1/purchases/${id}`, options)
+      .then(() => fetch('http://localhost:3001/api/v1/purchases'))
+      .then(response => response.json())
+      .then(() => this.setState({orders: filteredOrders}))
+      .catch(error => console.log(error))
   }
 
   render() {
