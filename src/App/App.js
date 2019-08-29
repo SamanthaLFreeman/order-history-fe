@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import OrdersContainer from '../OrdersContainer/OrdersContainer';
 
 class App extends Component {
   constructor() {
@@ -26,7 +27,7 @@ class App extends Component {
           </div>
         </header>
         <div className='purchase-container'>
-        
+          <OrdersContainer orders={this.state.orders} />
         </div>
       </div>
     );
