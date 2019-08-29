@@ -2,6 +2,20 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      orders: []
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/purchases	')
+      .then(response => response.json())
+      .then(data => this.setState({orders: data}))
+      .catch(error => console.log(error))
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,7 +26,7 @@ class App extends Component {
           </div>
         </header>
         <div className='purchase-container'>
-
+        
         </div>
       </div>
     );
