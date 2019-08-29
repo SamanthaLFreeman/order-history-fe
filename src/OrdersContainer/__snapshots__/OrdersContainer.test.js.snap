@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OrdersContainer should match the snapshot with data passed through 1`] = `ShallowWrapper {}`;
+exports[`OrdersContainer should match the snapshot with data passed through 1`] = `
+<section>
+  <Order
+    key="42"
+    order={
+      Object {
+        "description": "Obviously pants...",
+        "id": 42,
+        "img": "fancy looking jeans",
+        "name": "Jeans",
+        "price": "10000000",
+      }
+    }
+    removeOrder={[MockFunction]}
+  />
+</section>
+`;
 
-exports[`OrdersContainer should match the snapshot with no data passed through 1`] = `ShallowWrapper {}`;
+exports[`OrdersContainer should match the snapshot with no data passed through 1`] = `
+<section>
+  <Order
+    key=""
+    order={
+      Object {
+        "description": "",
+        "id": "",
+        "img": "",
+        "name": "",
+        "price": "",
+      }
+    }
+    removeOrder={[MockFunction]}
+  />
+</section>
+`;
