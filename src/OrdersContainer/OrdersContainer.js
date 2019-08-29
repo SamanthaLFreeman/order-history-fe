@@ -8,7 +8,7 @@ const OrdersContainer = ({ orders, removeOrder }) => {
   })
 
   return (
-    <section>
+    <section className="orders-container">
       {allOrders}
     </section>
   )

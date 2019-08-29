@@ -4,8 +4,8 @@
 
 header {
   align-items: center;
-  background: url('../images/checkout.jpg') no-repeat center / 100%;
-  color: #FFF;
+  background: url("../images/checkout.jpg") no-repeat center / 100%;
+  color: #fff;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
@@ -27,8 +27,9 @@ h1 {
 
 .purchase-container {
   height: 700px;
-  background:#CECECE;
+  background: #cecece;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: scroll;
 }

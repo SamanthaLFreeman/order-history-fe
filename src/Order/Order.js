@@ -3,12 +3,16 @@ import './Order.css';
 
 const Order = ({order, removeOrder}) => {
   return (
-    <section>
+    <section className='order'>
       <img src={order.img} alt={order.name} />
+      <div className="order-center">
       <h2>{order.name}</h2>
       <p>{order.description}</p>
-      <p>${order.price}</p>
-      <button onClick={() => removeOrder(order.id)}>Remove From History</button>
+      </div>
+      <div className="order-right">
+      <p className="price">${order.price}</p>
+      <button className="remove-btn" onClick={() => removeOrder(order.id)}>Remove From History</button>
+      </div>
     </section>
   )
 }
