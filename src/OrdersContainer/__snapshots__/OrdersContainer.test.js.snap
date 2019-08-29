@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrdersContainer should match the snapshot with data passed through 1`] = `ShallowWrapper {}`;
+
+exports[`OrdersContainer should match the snapshot with no data passed through 1`] = `ShallowWrapper {}`;
