@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import OrdersContainer from '../OrdersContainer/OrdersContainer';
+import OrdersForm from '../OrdersForm/OrdersForm'
 
 class App extends Component {
   constructor() {
@@ -17,13 +18,17 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
+  addOrder = (newOrder) => {
+    // this.setState({orders: ...this.state.orders, newOrder})
+  }
+
   render() {
     return (
       <div className="App">
         <header>
           <h1 className='app-title'>My Order History</h1>
           <div className='purchase-form'>
-
+            <OrdersForm addOrder={this.addOrder}/>
           </div>
         </header>
         <div className='purchase-container'>
