@@ -12,18 +12,29 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/v1/purchases	')
+    fetch('http://localhost:3001/api/v1/purchases')
       .then(response => response.json())
       .then(data => this.setState({orders: data}))
       .catch(error => console.log(error))
   }
 
   addOrder = (newOrder) => {
-    this.setState({orders: [...this.state.orders, newOrder]})
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(newOrder),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    
+    fetch('http://localhost:3001/api/v1/purchases', options)
+      .then(response => response.json())
+      .then(data => this.setState({ orders: [...this.state.orders, newOrder] }))
+      .catch(error => console.log(error));
   }
 
   removeOrder = (id) => {
-    
+
   }
 
   render() {
