@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import OrdersContainer from '../OrdersContainer/OrdersContainer';
-import OrdersForm from '../OrdersForm/OrdersForm'
+import OrdersForm from '../OrdersForm/OrdersForm';
+import { fetchOrders } from '../apiCalls/apiCalls'
 
 class App extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // fetchOrders()
     fetch('http://localhost:3001/api/v1/purchases')
       .then(response => response.json())
       .then(data => this.setState({orders: data}))

@@ -1,25 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Order should match the snapshot 1`] = `
-<section>
+<section
+  className="order"
+>
   <img
     alt="Jeans"
     src="fancy looking jeans"
   />
-  <h2>
-    Jeans
-  </h2>
-  <p>
-    Obviously pants...
-  </p>
-  <p>
-    $
-    10000000
-  </p>
-  <button
-    onClick={[MockFunction]}
+  <div
+    className="order-center"
   >
-    Remove From History
-  </button>
+    <h2>
+      Jeans
+    </h2>
+    <p>
+      Obviously pants...
+    </p>
+  </div>
+  <div
+    className="order-right"
+  >
+    <p
+      className="price"
+    >
+      $
+      10000000
+    </p>
+    <button
+      className="remove-btn"
+      onClick={[Function]}
+    >
+      Remove From History
+    </button>
+  </div>
 </section>
 `;
