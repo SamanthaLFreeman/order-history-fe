@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import OrdersContainer from '../OrdersContainer/OrdersContainer';
 import OrdersForm from '../OrdersForm/OrdersForm';
-import { fetchOrders } from '../apiCalls/apiCalls'
+import { fetchOrders, postOrder, deleteOrder } from '../util/apiCalls';
 
 class App extends Component {
   constructor() {
@@ -13,24 +13,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // fetchOrders()
-    fetch('http://localhost:3001/api/v1/purchases')
-      .then(response => response.json())
+    fetchOrders()
       .then(data => this.setState({orders: data}))
       .catch(error => console.log(error))
   }
 
   addOrder = (newOrder) => {
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(newOrder),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    fetch('http://localhost:3001/api/v1/purchases', options)
-      .then(response => response.json())
+    postOrder(newOrder)
       .then(() => this.setState({ orders: [...this.state.orders, newOrder] }))
       .catch(error => console.log(error));
   }
@@ -38,17 +27,9 @@ class App extends Component {
   removeOrder = (id) => {
     const filteredOrders = this.state.orders.filter(order => {
       return order.id !== id
-    })
-    const options = {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
+    })  
 
-    fetch(`http://localhost:3001/api/v1/purchases/${id}`, options)
-      .then(() => fetch('http://localhost:3001/api/v1/purchases'))
-      .then(response => response.json())
+    deleteOrder(id)
       .then(() => this.setState({orders: filteredOrders}))
       .catch(error => console.log(error))
   }
