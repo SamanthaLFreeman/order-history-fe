@@ -15,13 +15,13 @@ class App extends Component {
   componentDidMount() {
     fetchOrders()
       .then(data => this.setState({orders: data}))
-      .catch(error => console.log(error))
+      .catch(error => console.log(error.message))
   }
 
   addOrder = (newOrder) => {
     postOrder(newOrder)
       .then(() => this.setState({ orders: [...this.state.orders, newOrder] }))
-      .catch(error => console.log(error));
+      .catch(error => console.log(error.message));
   }
 
   removeOrder = (id) => {
@@ -31,7 +31,7 @@ class App extends Component {
 
     deleteOrder(id)
       .then(() => this.setState({orders: filteredOrders}))
-      .catch(error => console.log(error))
+      .catch(error => console.log(error.message))
   }
 
   render() {
